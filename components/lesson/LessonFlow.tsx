@@ -15,7 +15,16 @@ interface Props {
   topic: Topic;
 }
 
-const STUDENT_ID = process.env.NEXT_PUBLIC_STUDENT_ID ?? "student_demo_001";
+function getStudentId(): string {
+  if (typeof window === "undefined") return "ssr_placeholder";
+  const existing = localStorage.getItem("spacey_student_id");
+  if (existing) return existing;
+  const newId = `student_${Math.random().toString(36).slice(2, 10)}`;
+  localStorage.setItem("spacey_student_id", newId);
+  return newId;
+}
+
+const STUDENT_ID = getStudentId();
 
 const INTRO_MESSAGES: Record<string, string> = {
   moon: "Hi there, space explorer! 🌕 I'm Cosmo, your AI space guide! Today we're visiting the Moon — Earth's closest neighbour. Did you know the Moon is slowly drifting away from Earth at about 3.8 cm per year? Ask me anything, or say 'quiz me' when you're ready!",

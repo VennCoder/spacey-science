@@ -3,7 +3,18 @@ import { useEffect, useState } from "react";
 import { TOPICS } from "@/data/topics";
 import Link from "next/link";
 
-const STUDENT_ID = process.env.NEXT_PUBLIC_STUDENT_ID ?? "student_demo_001";
+
+
+function getStudentId(): string {
+  if (typeof window === "undefined") return "ssr_placeholder";
+  const existing = localStorage.getItem("spacey_student_id");
+  if (existing) return existing;
+  const newId = `student_${Math.random().toString(36).slice(2, 10)}`;
+  localStorage.setItem("spacey_student_id", newId);
+  return newId;
+}
+
+const STUDENT_ID = getStudentId();
 
 interface ProgressEntry {
   topic: string;
