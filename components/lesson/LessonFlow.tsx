@@ -1,4 +1,5 @@
 "use client";
+import { Topic } from "@/types";
 import { StarField } from "@/components/ui/StarField";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,8 +10,9 @@ import { TOPICS, TopicMeta } from "@/data/topics";
 import { LessonProgress, QuizQuestion } from "@/types";
 import { CheckCircle } from "lucide-react";
 
+
 interface Props {
-  topic: string;
+  topic: Topic;
 }
 
 const STUDENT_ID = process.env.NEXT_PUBLIC_STUDENT_ID ?? "student_demo_001";
