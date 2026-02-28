@@ -3,7 +3,7 @@
 An AI-powered space education platform for children aged 8–14.
 
 ## Live Demo
-[https://spacey-science-xyz.vercel.app](https://spacey-science-xyz.vercel.app)
+[https://spacey-science-ruby.vercel.app/](https://spacey-science-ruby.vercel.app/)
 
 ## Path Chosen
 **Path 2: The Intelligent Tutor (AI Architecture)**
